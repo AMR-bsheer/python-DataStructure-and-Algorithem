@@ -17,9 +17,11 @@
 <div>
   <h1 align="center">Content of Algorithem</h1>
   <ul>
+    <li>Time and Space Complexity</li>
     <li>Big O notation</li>
     <li>linear search</li>
     <li>Binary search</li>
+    <li>Sorting</li>
     <li>Bubble sort</li>
     <li>Quick sort</li>
     <li>insertion sort </li>
