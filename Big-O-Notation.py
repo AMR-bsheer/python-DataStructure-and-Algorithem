@@ -1,6 +1,9 @@
 #Big O Notation is simply a method we use to know the efficiency of algorithms
 #  in terms of time or space (memory) when the size of the data we are working on increases.
 
+# Big O Notation is used to measure How runing time or 
+# space requirments for your program grow as input size grows .
+
 
 # Big O notation => Order of => Growth rate
 # n => The amount of data 
