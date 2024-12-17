@@ -3,6 +3,16 @@
 # 2.classes
 # 3.inheritance
 # 4.polymorphism
+# 5.Encapsulation
+
+# Encapsulation and Access Control: s the idea of bundling data and methods that operate on that
+# data within a class. You can control access to the data by making attributes
+# private (prefixing with _ or __).
+
+# Inheritance: allows a class to inherit attributes and methods from another class
+# super().__init__() is used to call the constructor of the parent class.
+
+# Polymorphism: allows different classes to have methods with the same name but different implementations
 
 
 # Example
@@ -93,14 +103,14 @@ Course.display_info()
 
 
 # Encapsulation an Acess control 
-
+# 
 class Student:
-    def __init__(self,name , student_id):
+    def __init__(self, name , student_id):
         self.__name = name # private attribute 
         self.__student_id = student_id # private attribute
     
     def display_student_info(self):
-        print(f"Name : {self.name} , Student ID : {self.__student_id}")
+        print(f"Name : {self.get_name()} , Student ID : {self.__student_id}")
 
 # create object 
 student = Student("Mohamed" , 102)
@@ -154,4 +164,61 @@ class Instructor(User):
 # Polymorphic behavior
 users = [Student() , Instructor()]
 for user in users:
-    user.login
+    user.login() #Each object calls its own version of login
+
+
+# Encapsulation :  means "wrapping" or "hiding" the data (variables) and methods 
+# (functions) that interact with that data inside a class. The goal is to protect the data from being directly
+#  accessed or modified from outside the class and to control access through specific methods called getters
+#  and setters.
+
+#Imagine you have a BankAccount class that contains a person's account balance:
+class BankAccount:
+    def __init__(self, balance):
+        self.__balance = balance  # __ makes the variable private
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+            print(f"Deposit successful! Current balance: {self.__balance}")
+        else:
+            print("Amount must be greater than zero")
+
+    def withdraw(self, amount):
+        if 0 < amount <= self.__balance:
+            self.__balance -= amount
+            print(f"Withdrawal successful! Current balance: {self.__balance}")
+        else:
+            print("Insufficient balance or invalid amount")
+
+    def get_balance(self):  # Getter method to display the balance
+        return self.__balance
+
+
+# Using the class
+account = BankAccount(1000)
+
+account.deposit(500)      # Depositing 500
+account.withdraw(200)     # Withdrawing 200
+print(account.get_balance())  # Display the balance
+
+
+# Code Explanation:
+
+#     self.__balance
+#     The double underscore __ makes the variable private, meaning it cannot be accessed directly 
+#     from outside the class.
+
+#     deposit() and withdraw()
+#     These methods control adding or subtracting money, ensuring the operation is valid 
+# (e.g., no negative amounts or exceeding the balance).
+
+#     get_balance()
+#     This is a getter method that safely returns the value of the private variable __balance.
+
+#Why Use Encapsulation?
+    # Protection: Protects data from being accidentally modified or accessed inappropriately.
+    # Control: Allows you to enforce conditions or checks when changing the data.
+    # Organization: Keeps your code clean, modular, and easier to maintain.
+
+    
